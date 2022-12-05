@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:40:34 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/04 23:53:25 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:20:43 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,16 @@
 static int	check_error(int result)
 {
 	if (result == 1)
-		ft_printf("Error: Mal formato\n");
+		ft_printf("Error: Bad format\n");
 	else if (result == 2)
-		ft_printf("Error: Fuera de rango\n");
+		ft_printf("Error: Out of range\n");
 	else if (result == 3)
-		ft_printf("Error: Numero duplicado\n");
+		ft_printf("Error: Duplicate numbers\n");
 	else
 		return (1);
 	return (0);
 }
-/*
-void	l(){
-	system("leaks push_swap");
-}
-*/
+
 static void	free_split(char **split)
 {
 	int	aux;
@@ -55,30 +51,12 @@ static void	free_stk(t_stack **stk)
 	free(stk);
 }
 
-void	show_stack(char *s, t_stack *a)
-{
-
-	t_stack	*sig = a;
-
-	ft_printf("%s\n", s);
-	ft_printf("-------\n");
-	while (sig->next != NULL)
-	{
-		ft_printf("%d\n", sig->num);
-		sig = sig->next;
-	}
-	ft_printf("%d\n", sig->num);
-	ft_printf("-------\n");
-}
-
 int	main(int argc, char **argv)
 {
 	char	**params;
-	t_stack **a;
-	t_stack **b;
-	t_stack **n;
-
-//	atexit(l);
+	t_stack	**a;
+	t_stack	**b;
+	t_stack	**n;
 
 	if (argc >= 2)
 	{
@@ -87,30 +65,15 @@ int	main(int argc, char **argv)
 		{
 			a = make_stack(params);
 			b = (t_stack **)malloc(sizeof(t_stack *));
-			
-//			show_stack("INICIAL", *a);
-			/*
-			s(a);
-			show_stack("S", *a);
-			r(a);
-			show_stack("R", *a);
-			show_stack("RR", *a);
-			p(a, b);
-			show_stack("PA ->AAAAAAAAAAAAA", *a);
-			show_stack("PA ->BBBBBBBBBBBBB", *b);
-			rr(a);
-			show_stack("RR", *a);
-			*/
 			n = normalize_stk(a);
 			free_stk(a);
-//			show_stack("NORMALIZADA", *n);
 			push_swap(n, b);
-//			show_stack("ORDENADA", *n);
 			free_stk(n);
 			free_stk(b);
 		}
 		free_split(params);
+		return (0);
 	}
-
-	return (0);
+	ft_printf("Error: Wrong number of arguments.\n");
+	return (-1);
 }

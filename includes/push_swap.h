@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:59:07 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/05 00:02:16 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:03:23 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ void	stk_add_front(t_stack **stk, t_stack *new);
 t_stack	*stk_new(int elem);
 int		stk_size(t_stack **stk);
 
+/*stacks_utils_2.c*/
+int		stk_first(t_stack **stk);
+int		check_sorted(t_stack **stk);
+int		get_pos(int n, t_stack **stk);
+
 /*check_param.c*/
 int		check_param(char **array);
 
@@ -48,6 +53,5 @@ t_stack	**normalize_stk(t_stack **a);
 
 /*push_swap.c*/
 void	push_swap(t_stack **a, t_stack **b);
-int		check_sorted(t_stack **stk);
 
 #endif

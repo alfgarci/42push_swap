@@ -6,7 +6,7 @@
 #    By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 18:06:47 by alfgarci          #+#    #+#              #
-#    Updated: 2022/12/04 19:08:40 by alfgarci         ###   ########.fr        #
+#    Updated: 2022/12/05 13:49:35 by alfgarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC 	=	${SRC_DIR}/main.c \
 			${SRC_DIR}/get_param.c \
 			${SRC_DIR}/check_param.c \
 			${SRC_DIR}/stack_utils.c \
+			${SRC_DIR}/stack_utils_2.c \
 			${SRC_DIR}/moves.c \
 			${SRC_DIR}/normalize_stk.c \
 			${SRC_DIR}/push_swap.c

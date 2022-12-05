@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 21:32:08 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/04 19:58:13 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/05 13:48:09 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,6 @@ static int	next_biggest(int *arr, int num, int tam)
 			next = tmp[nums];
 	free(tmp);
 	return (next);
-}
-
-static int	get_pos(int n, t_stack **stk)
-{
-	t_stack	*it;
-	int		pos;
-
-	it = *stk;
-	pos = 0;
-	while (it->num != n)
-	{
-		pos++;
-		it = it->next;
-	}
-	return (pos);
 }
 
 static	int	get_min(t_stack **stk)
