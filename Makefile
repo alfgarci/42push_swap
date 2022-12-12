@@ -6,7 +6,7 @@
 #    By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/25 18:06:47 by alfgarci          #+#    #+#              #
-#    Updated: 2022/12/05 13:49:35 by alfgarci         ###   ########.fr        #
+#    Updated: 2022/12/12 10:22:44 by alfgarci         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ all:	${NAME}
 ${NAME}: ${OBJ}
 		@echo "${RED}Compiling Libft...${NC}"
 		@make -s -C ${LIBFT_DIR}
-		@echo "${RED}Compiling FdF...${NC}"
+		@echo "${RED}Compiling Push-swap...${NC}"
 		@${CC} ${FLAGS} ${OBJ} -o ${NAME}
 		@echo "${GREEN}${NAME} READY!${NC}"
 
