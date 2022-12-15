@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 11:23:40 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/05 14:13:39 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:09:31 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 static void	small_3_algorithm(t_stack **a)
 {
 	int		size;
-	int		i;
 
-	i = -1;
 	size = stk_size(a);
 	if (size <= 3)
 	{
