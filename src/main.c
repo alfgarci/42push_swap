@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:40:34 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/12 11:36:05 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/15 22:37:39 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 		{
 			a = make_stack(params);
 			b = (t_stack **)malloc(sizeof(t_stack *));
+			*b = NULL;
 			n = normalize_stk(a);
 			free_stk(a);
 			push_swap(n, b);

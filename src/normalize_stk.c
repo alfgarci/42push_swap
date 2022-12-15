@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 21:32:08 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/05 13:48:09 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/15 22:39:34 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ t_stack	**normalize_stk(t_stack **a)
 
 	i = -1;
 	min = get_min(a);
-	stk_norm = malloc(sizeof(t_stack *));
+	stk_norm = (t_stack **)malloc(sizeof(t_stack *));
+	*stk_norm = NULL;
 	arr_norm = (int *)malloc(sizeof(int) * stk_size(a));
 	arr_num = stk_to_arr(a);
 	while (++i < stk_size(a))

@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 18:09:56 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/02 21:04:05 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/15 20:37:57 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_stack	**make_stack(char **params)
 	int		i;
 
 	stk = (t_stack **)malloc(sizeof(t_stack *));
+	*stk = NULL;
 	i = -1;
 	while (params[++i] != NULL)
 		stk_add_back(stk, stk_new(ft_atoi(params[i])));
