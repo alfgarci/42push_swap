@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 18:20:20 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/12 11:36:30 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/16 11:31:50 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ static int	check_format(char **array)
 	i = -1;
 	while (array[++i])
 	{
-		if (ft_isdigit(array[i][0]) || array[i][0] == '-')
+		if (ft_isdigit(array[i][0])
+				|| (array[i][0] == '-' && ft_isdigit(array[i][1])))
 		{
 			j = 0;
 			while (array[i][++j])
