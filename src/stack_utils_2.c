@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 13:46:49 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/05 13:51:19 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/16 17:03:09 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,30 @@ int	get_pos(int n, t_stack **stk)
 		it = it->next;
 	}
 	return (pos);
+}
+
+void	free_split(char **split)
+{
+	int	aux;
+
+	aux = -1;
+	while (*(split + ++aux))
+		free(*(split + aux));
+	free(split);
+}
+
+void	free_stk(t_stack **stk)
+{
+	t_stack	*sig;
+	t_stack	*aux;
+
+	sig = *stk;
+	while (sig)
+	{
+		aux = sig->next;
+		free(sig);
+		sig = aux;
+	}
+	free(sig);
+	free(stk);
 }

@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:59:07 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/05 14:03:23 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/16 17:02:11 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int		stk_size(t_stack **stk);
 int		stk_first(t_stack **stk);
 int		check_sorted(t_stack **stk);
 int		get_pos(int n, t_stack **stk);
+void	free_stk(t_stack **stk);
+void	free_split(char **split);
 
 /*check_param.c*/
 int		check_param(char **array);

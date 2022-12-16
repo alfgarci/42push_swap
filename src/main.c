@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:40:34 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/15 22:37:39 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/16 17:03:37 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,32 +23,6 @@ static int	check_error(int result)
 	else
 		return (1);
 	return (0);
-}
-
-static void	free_split(char **split)
-{
-	int	aux;
-
-	aux = -1;
-	while (*(split + ++aux))
-		free(*(split + aux));
-	free(split);
-}
-
-static void	free_stk(t_stack **stk)
-{
-	t_stack	*sig;
-	t_stack	*aux;
-
-	sig = *stk;
-	while (sig)
-	{
-		aux = sig->next;
-		free(sig);
-		sig = aux;
-	}
-	free(sig);
-	free(stk);
 }
 
 int	main(int argc, char **argv)

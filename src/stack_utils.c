@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 17:43:40 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/15 20:38:43 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/16 17:04:32 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stack	*stk_new(int num)
 
 	tmp = (t_stack *)malloc(sizeof(t_stack));
 	if (!tmp)
-		return (0);
+		return (NULL);
 	tmp->num = num;
 	tmp->next = NULL;
 	return (tmp);
