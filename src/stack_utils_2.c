@@ -34,31 +34,6 @@ int	check_sorted(t_stack **stk)
 	return (1);
 }
 
-int	get_pos(int n, t_stack **stk)
-{
-	t_stack	*it;
-	int		pos;
-
-	it = *stk;
-	pos = 0;
-	while (it->num != n)
-	{
-		pos++;
-		it = it->next;
-	}
-	return (pos);
-}
-
-void	free_split(char **split)
-{
-	int	aux;
-
-	aux = -1;
-	while (*(split + ++aux))
-		free(*(split + aux));
-	free(split);
-}
-
 void	free_stk(t_stack **stk)
 {
 	t_stack	*sig;
@@ -73,4 +48,28 @@ void	free_stk(t_stack **stk)
 	}
 	free(sig);
 	free(stk);
+}
+
+t_stack	**make_stack(int *arr, int len_arr)
+{
+	t_stack	**stk;
+	t_stack	*new;
+	int		i;
+
+	stk = (t_stack **)malloc(sizeof(t_stack *));
+	if (!stk)
+		return (NULL);
+	*stk = NULL;
+	i = -1;
+	while (++i < len_arr)
+	{
+		new = stk_new(arr[i]);
+		if (!new)
+		{
+			free_stk(stk);
+			return (NULL);
+		}
+		stk_add_back(stk, new);
+	}
+	return (stk);
 }

@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 21:32:08 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/15 22:39:34 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/16 17:49:05 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,40 +41,49 @@ static int	next_biggest(int *arr, int num, int tam)
 	return (next);
 }
 
-static	int	get_min(t_stack **stk)
+static	int	get_min(int *arr, int tam_arr)
 {
-	t_stack	*it;
-	int		min;
+	int	min;
+	int	i;
 
-	it = *stk;
-	min = it->num;
-	while (it)
-	{
-		if (it->num < min)
-			min = it->num;
-		it = it->next;
-	}
+	i = -1;
+	min = arr[0];
+	while (++i < tam_arr)
+		if (arr[i] < min)
+			min = arr[i];
 	return (min);
 }
 
-static int	*stk_to_arr(t_stack **stk)
+static int	*make_int_arr(char **char_arr)
 {
-	t_stack	*it;
-	int		*arr;
-	int		i;
+	int	*arr;
+	int	len;
+	int	i;
 
-	it = *stk;
 	i = 0;
-	arr = (int *)malloc(sizeof(int) * stk_size(stk));
-	while (it)
-	{
-		arr[i++] = it->num;
-		it = it->next;
-	}
+	len = 0;
+	while (char_arr[len])
+		len++;
+	arr = (int *)malloc(sizeof(int) * len);
+	if (!arr)
+		return (NULL);
+	i = -1;
+	while (++i < len)
+		arr[i] = ft_atoi(char_arr[i]);
 	return (arr);
 }
 
-t_stack	**normalize_stk(t_stack **a)
+static int	len_char_arr(char **char_arr)
+{
+	int	i;
+
+	i = 0;
+	while (char_arr[i])
+		i++;
+	return (i);
+}
+
+t_stack	**normalize_stk(char **params)
 {
 	int		i;
 	int		*arr_norm;
@@ -83,20 +92,20 @@ t_stack	**normalize_stk(t_stack **a)
 	t_stack	**stk_norm;
 
 	i = -1;
-	min = get_min(a);
-	stk_norm = (t_stack **)malloc(sizeof(t_stack *));
-	*stk_norm = NULL;
-	arr_norm = (int *)malloc(sizeof(int) * stk_size(a));
-	arr_num = stk_to_arr(a);
-	while (++i < stk_size(a))
+	arr_norm = (int *)malloc(sizeof(int) * len_char_arr(params));
+	if (!arr_norm)
+		return (NULL);
+	arr_num = make_int_arr(params);
+	min = get_min(arr_num, len_char_arr(params));
+	while (++i < len_char_arr(params))
 	{
-		arr_norm[get_pos(min, a)] = i;
-		min = next_biggest(arr_num, min, stk_size(a));
+		arr_norm[get_pos(min, arr_num, len_char_arr(params))] = i;
+		min = next_biggest(arr_num, min, len_char_arr(params));
 	}
-	i = -1;
-	while (++i < stk_size(a))
-		stk_add_back(stk_norm, stk_new(arr_norm[i]));
+	stk_norm = make_stack(arr_norm, len_char_arr(params));
 	free(arr_norm);
 	free(arr_num);
+	if (!stk_norm)
+		return (NULL);
 	return (stk_norm);
 }

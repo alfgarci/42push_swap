@@ -6,7 +6,7 @@
 /*   By: alfgarci <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 19:40:34 by alfgarci          #+#    #+#             */
-/*   Updated: 2022/12/16 17:03:37 by alfgarci         ###   ########.fr       */
+/*   Updated: 2022/12/16 17:49:14 by alfgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,39 @@ static int	check_error(int result)
 	return (0);
 }
 
+static int	exit_a(char **params)
+{
+	free_split(params);
+	return (-1);
+}
+
+static int	exit_b(char **params, t_stack **a)
+{
+	free_split(params);
+	free_stk(a);
+	return (-1);
+}
+
 int	main(int argc, char **argv)
 {
 	char	**params;
-	t_stack	**a;
 	t_stack	**b;
-	t_stack	**n;
+	t_stack	**a;
 
 	if (argc >= 2)
 	{
 		params = get_param(argc, argv);
 		if (check_error(check_param(params)))
 		{
-			a = make_stack(params);
+			a = normalize_stk(params);
+			if (!a)
+				return (exit_a(params));
 			b = (t_stack **)malloc(sizeof(t_stack *));
+			if (!b)
+				return (exit_b(params, a));
 			*b = NULL;
-			n = normalize_stk(a);
+			push_swap(a, b);
 			free_stk(a);
-			push_swap(n, b);
-			free_stk(n);
 			free_stk(b);
 		}
 		free_split(params);

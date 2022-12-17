@@ -65,27 +65,3 @@ char	**get_param(int argc, char **argv)
 	}
 	return (array);
 }
-
-t_stack	**make_stack(char **params)
-{
-	t_stack	**stk;
-	t_stack	*new;
-	int		i;
-
-	stk = (t_stack **)malloc(sizeof(t_stack *));
-	if (!stk)
-		return (NULL);
-	*stk = NULL;
-	i = -1;
-	while (params[++i] != NULL)
-	{
-		new = stk_new(ft_atoi(params[i]));
-		if (!new)
-		{
-			free_stk(stk);
-			return (NULL);
-		}
-		stk_add_back(stk, new);
-	}
-	return (stk);
-}

@@ -24,6 +24,7 @@ SRC 	=	${SRC_DIR}/main.c \
 			${SRC_DIR}/check_param.c \
 			${SRC_DIR}/stack_utils.c \
 			${SRC_DIR}/stack_utils_2.c \
+			${SRC_DIR}/array_utils.c \
 			${SRC_DIR}/moves.c \
 			${SRC_DIR}/normalize_stk.c \
 			${SRC_DIR}/push_swap.c
